@@ -7,7 +7,7 @@ import Web.EdgeList.Edge.Edge;
 /**
  * 
  * @author Kazuma
- * EdgeList is ordered y, and containts Edge(personName,reference)
+ * EdgeList is ordered by y, and containts Edge(personName,reference)
  * it is not request
  *
  */
@@ -16,9 +16,9 @@ public class EdgeList extends ArrayList<Edge> {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * Add new edge to the array.
 	 * @param edge
-	 * @return
+	 * @return boolean
 	 */
 	public boolean addEdge(Edge edge){
 		if(this.size()==0){
@@ -52,11 +52,11 @@ public class EdgeList extends ArrayList<Edge> {
 		return true;
 	}
 	/**
-	 * get the index of the array by personName
-	 * @param targetName
-	 * @return index
+	 * Get the index of the array with personName
+	 * @param String: targetName
+	 * @return int index of the array.
 	 */
-	public int getIndexbyPersonName(String targetName){
+	public int getIndexWithPersonName(String targetName){
 		int tail = this.size()-1;
 		int head =0;
 		//System.out.println(tail);
@@ -77,12 +77,12 @@ public class EdgeList extends ArrayList<Edge> {
 	}	
 	
 	/**
-	 * get Edge by personName
-	 * @param targetName
-	 * @return edge
+	 * Get Edge with personName
+	 * @param String targetName
+	 * @return Edge
 	 */
-	public Edge getEdgebyPersonName(String targetName){
-		int index= this.getIndexbyPersonName(targetName);
+	public Edge getEdgeWithPersonName(String targetName){
+		int index= this.getIndexWithPersonName(targetName);
 		if(index != -1)
 		return this.get(index);
 		else {
@@ -91,12 +91,12 @@ public class EdgeList extends ArrayList<Edge> {
 	}
 	
 	/**
-	 * remove Edge by personName
-	 * @param targetName
-	 * @return
+	 * Remove Edge by personName
+	 * @param String targetName
+	 * @return Boolean
 	 */
-	public boolean removeEdgebyPersonName(String targetName){
-		int index = getIndexbyPersonName(targetName);
+	public boolean removeEdgeWithPersonName(String targetName){
+		int index = getIndexWithPersonName(targetName);
 		if(index !=-1){
 			this.remove(index);
 			return true;
@@ -107,14 +107,12 @@ public class EdgeList extends ArrayList<Edge> {
 	}
 	
 	/**
-	 * change the reference
-	 * old edge and new edge: their personName is different
-	 * sort is required.
-	 * @param edge
-	 * @return
+	 * Change the reference
+	 * @param Edge
+	 * @return Boolean
 	 */
 	public boolean setEdge(Edge edge){
-		int index = getIndexbyPersonName(edge.getPersonName());
+		int index = getIndexWithPersonName(edge.getPersonName());
 		if(index !=-1){
 			this.set(index, edge);
 			return true;

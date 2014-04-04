@@ -15,7 +15,11 @@ public class CLI {
 
 	public CLI(){
 	}
-	
+	/**
+	 * get task
+	 * 
+	 * @throws IOException
+	 */
 	public void task() throws IOException{
         System.out.println("\n"+
         		"What's would you like to do? \n"+
@@ -45,7 +49,10 @@ public class CLI {
 				task();
 		}
 	}
-	
+	/**
+	 * read and Write the reference.
+	 * 
+	 */
 	public void readWriteWeb() throws IOException{
 		FileReadWrite fileRW = web.toFileReadWrite();
         System.out.println("\n" +
@@ -314,6 +321,11 @@ public class CLI {
 			return false;
 		}
 	}
+	
+	/**
+	 * 
+	 * 
+	 */
 	private int checkNumber(String val) {
 		try{
 	        return Integer.parseInt(val);

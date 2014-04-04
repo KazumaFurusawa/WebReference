@@ -30,7 +30,7 @@ public class Web {
 	/**
 	 * 
 	 * @param personName: input personName
-	 * @return success or not
+	 * @return boolean: success or not
 	 */
 	public boolean addPerson(String personName) {
 		try{
@@ -174,7 +174,7 @@ public class Web {
 	}
 	
 	/**
-	 * The person received highly recommendation from anybody or not.
+	 * 
 	 * @param personName
 	 * @return boolean
 	 */
@@ -194,7 +194,7 @@ public class Web {
 	/**
 	 * 
 	 * @param personName
-	 * @return
+	 * @return String 
 	 */
 	public String allReferencesOf(String personName){
 		String str = new String();
