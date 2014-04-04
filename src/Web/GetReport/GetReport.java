@@ -40,7 +40,7 @@ public class GetReport {
 		for(Iterator<Entry<String, EdgeList>> iterator = adjHash.entrySet().iterator();iterator.hasNext();){
 			for(Iterator<Edge> iterator2 = iterator.next().getValue().iterator();iterator2.hasNext();){
 				Edge edge = iterator2.next();
-				int check = edgeList2.getIndexbyPersonName(edge.getPersonName());
+				int check = edgeList2.getIndexWithPersonName(edge.getPersonName());
 				String check2 = String.valueOf(check);
 				if(edge.getLevel() == 3 && check2.equals("-1")){
 					str += edge.getPersonName() +  ", ";
@@ -67,7 +67,7 @@ public class GetReport {
 		for(Iterator<Entry<String, EdgeList>> iterator = adjHash.entrySet().iterator();iterator.hasNext();){
 			Entry<String, EdgeList> entry = iterator.next();
 			String targetNameString = entry.getKey();
-			Edge edge = entry.getValue().getEdgebyPersonName(personName);
+			Edge edge = entry.getValue().getEdgeWithPersonName(personName);
 			switch(edge.getLevel()){
 				case 1: recommendEdgeList.add(new Edge(targetNameString,edge.getLevel()));
 						break;

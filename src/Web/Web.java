@@ -103,7 +103,7 @@ public class Web {
 	 */
 	public boolean deleteReference(String personName, String target){
 		try{
-			if(adjHash.get(personName).removeEdgebyPersonName(target))
+			if(adjHash.get(personName).removeEdgWithPersonName(target))
 				return true;
 		}catch(Exception e){
 			return false;
@@ -147,7 +147,7 @@ public class Web {
 		Iterator<Entry<String, EdgeList>> iterator = adjHash.entrySet().iterator();
 		while(iterator.hasNext()){
 			Entry<String,EdgeList> entry = iterator.next();
-			int index = entry.getValue().getIndexbyPersonName(personName);
+			int index = entry.getValue().getIndexWithPersonName(personName);
 			if(index != -1){
 				sum += entry.getValue().get(index).getLevel();
 			}
@@ -164,7 +164,7 @@ public class Web {
 		EdgeList edgeList = new EdgeList();
 		for(Iterator<Entry<String,EdgeList>> iterator = adjHash.entrySet().iterator();iterator.hasNext();){
 			Entry<String,EdgeList> entry = iterator.next();
-			int index = entry.getValue().getIndexbyPersonName(personName);
+			int index = entry.getValue().getIndexWithPersonName(personName);
 			if(index != -1){
 				Edge edge = entry.getValue().get(index);
 				edgeList.add(new Edge(entry.getKey(),edge.getLevel()));
